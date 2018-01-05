@@ -74,6 +74,35 @@
     <input type="submit" value="submittttt">
 </form>
 
+<br><br>
+<a href="/springmvc/testServletApi">Test Servlet Api</a>
+
+<br><br>
+<a href="/springmvc/testModelAndView">Test ModelAndView</a>
+
+<br><br>
+<a href="/springmvc/testMap">Test Map</a>
+
+<br><br>
+<a href="/springmvc/testSessionAttributes">Test SessionAttributes</a>
+
+<br><br>
+<!--
+    模拟修改操作
+    1. 原始数据为: Tom, 123456, tom@atguigu.com, 12
+    2. 密码不能被修改.
+    3. 表单回显, 模拟操作直接在表单填写对应的属性值
+-->
+<form action="/springmvc/testModelAttribute" method="Post">
+    <input type="hidden" name="id" value="1"/>
+    username: <input type="text" name="username"/>
+    <br>
+    email: <input type="text" name="email"/>
+    <br>
+    age: <input type="text" name="age"/>
+    <br>
+    <input type="submit" value="Submit"/>
+</form>
 
 </body>
 </html>
