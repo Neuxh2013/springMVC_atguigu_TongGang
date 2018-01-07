@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -24,6 +25,12 @@ request school: ${requestScope.school }
 
 <br><br>
 session school: ${sessionScope.school }
+
+<br><br>
+<fmt:message key="i18n.username"/>
+
+<br><br>
+<fmt:message key="i18n.password"/>
 
 
 </body>

@@ -239,4 +239,10 @@ public class SpringMVCTest {
         return SUCCESS;
     }
 
+    @RequestMapping("/testViewAndViewResolver")
+    public String testViewAndViewResolver(){
+        System.out.println("testViewAndViewResolver");
+        return SUCCESS;
+    }
+
 }
