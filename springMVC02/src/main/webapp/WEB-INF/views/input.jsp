@@ -26,6 +26,7 @@
     <%-- 说明是新增操作，调用POST --%>
     <c:if test="${employee.id == null}">
         LastName: <form:input path="lastName"/>
+        <form:errors path="lastName"/>
     </c:if>
     <%-- 说明是修改操作，调用PUT --%>
     <c:if test="${employee.id != null}">
@@ -37,6 +38,7 @@
 
     <br>
     Email: <form:input path="email"/>
+    <form:errors path="email"/>
     <br>
     <%
         Map<String, String> genders = new HashMap();
@@ -45,6 +47,11 @@
         request.setAttribute("genders", genders);
     %>
     Gender: <form:radiobuttons path="gender" items="${genders }"/>
+    <br>
+    Birth: <form:input path="birth"/>
+    <form:errors path="birth"/>
+    <br>
+    Salary: <form:input path="salary"/>
     <br>
     Department: <form:select path="department.id" items="${departments }"
                              itemLabel="departmentName" itemValue="id"></form:select>
