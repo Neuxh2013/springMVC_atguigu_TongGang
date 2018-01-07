@@ -23,7 +23,18 @@
 
 <form:form action="${pageContext.request.contextPath }/emp" method="POST" modelAttribute="employee">
 
-    LastName: <form:input path="lastName"/>
+    <%-- 说明是新增操作，调用POST --%>
+    <c:if test="${employee.id == null}">
+        LastName: <form:input path="lastName"/>
+    </c:if>
+    <%-- 说明是修改操作，调用PUT --%>
+    <c:if test="${employee.id != null}">
+        <form:hidden path="id"/>
+        <input type="hidden" name="_method" value="PUT"/>
+        <%-- 对于 _method 不能使用 form:hidden 标签, 因为 modelAttribute 对应的 bean 中没有 _method 这个属性 --%>
+        <%-- <form:hidden path="_method" value="PUT"/> --%>
+    </c:if>
+
     <br>
     Email: <form:input path="email"/>
     <br>
