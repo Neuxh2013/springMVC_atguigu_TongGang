@@ -110,5 +110,8 @@
 <br><br>
 <a href="/springmvc/testView">Test View</a>
 
+<br><br>
+<a href="/springmvc/testRedirect">Test Redirect</a>
+
 </body>
 </html>

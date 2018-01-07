@@ -251,4 +251,10 @@ public class SpringMVCTest {
         return "helloView";
     }
 
+    @RequestMapping("/testRedirect")
+    public String testRedirect() {
+        System.out.println("testRedirect");
+        return "redirect:/index.jsp";
+    }
+
 }
