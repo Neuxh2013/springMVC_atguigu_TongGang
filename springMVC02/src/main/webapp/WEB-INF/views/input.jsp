@@ -52,5 +52,12 @@
     <input type="submit" value="Submit"/>
 </form:form>
 
+<form action="testConversionServiceConverter" method="POST">
+    <!-- lastname-email-gender-department.id 例如: GG-gg@atguigu.com-0-105 -->
+    Employee: <input type="text" name="employee"/>
+    <input type="submit" value="Submit"/>
+</form>
+<br><br>
+
 </body>
 </html>
