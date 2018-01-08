@@ -26,10 +26,24 @@
         </property>
     </bean>
 
-    <!-- 配置国际化资源文件 -->
-    <bean class="org.springframework.context.support.ResourceBundleMessageSource">
+    <!--
+        配置国际化资源文件
+         注意：要给出 id 属性，不然浏览器不能正常显示 “用户名” 信息而是显示 “???i18n.user???”
+         猜测原因应该是 @AutoWire 的 ByType & ByName 引起的
+    -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="i18n"></property>
     </bean>
+
+    <!-- 配置 SessionLocalResolver 也要给出 id 属性以避免出现不必要的问题 -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+    <mvc:interceptors>
+        <!-- 配置 LocaleChanceInterceptor -->
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+    </mvc:interceptors>
+
+    <mvc:view-controller path="/i18n2" view-name="i18n2"/>
 
     <!--
 		default-servlet-handler 将在 SpringMVC 上下文中定义一个 DefaultServletHttpRequestHandler,
