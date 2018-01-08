@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.atguigu.springmvc.crud.dao.EmployeeDao;
 import com.atguigu.springmvc.crud.entities.Employee;
@@ -74,6 +75,16 @@ public class SpringMVCTest {
         String val = messageSource.getMessage("i18n.user", null, locale);
         System.out.println("testI18n: " + val);
         return "i18n";
+    }
+
+    @RequestMapping("/testFileUpload")
+    public String testFileUpload(@RequestParam("desc") String desc, @RequestParam("file") MultipartFile file)
+            throws IOException {
+
+        System.out.println("desc: " + desc);
+        System.out.println("OriginalFilename: " + file.getOriginalFilename());
+        System.out.println("InputStream: " + file.getInputStream());
+        return "success";
     }
 
 }
