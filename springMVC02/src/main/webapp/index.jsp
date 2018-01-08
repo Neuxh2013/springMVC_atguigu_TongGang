@@ -48,5 +48,8 @@
     <input type="submit" value="Submit"/>
 </form>
 
+<br><br>
+<a href="testExceptionHandlerExceptionResolver?i=0">Test ExceptionHandlerExceptionResolver</a>
+
 </body>
 </html>
