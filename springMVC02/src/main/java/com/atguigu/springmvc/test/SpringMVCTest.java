@@ -100,4 +100,19 @@ public class SpringMVCTest {
         return "success";
     }
 
+    /**
+     * 注意：需要注释掉 SpringMVCTestExceptionHandler 中的方法，才能得到预期结果
+     * @param i
+     * @return
+     */
+    @RequestMapping("/testResponseStatusExceptionResolver")
+    public String testResponseStatusExceptionResolver(@RequestParam("i") int i) {
+        if (i == 13) {
+            throw new UserNameNotMatchPasswordException();
+        }
+        System.out.println("testResponseStatusExceptionResolver...");
+
+        return "success";
+    }
+
 }

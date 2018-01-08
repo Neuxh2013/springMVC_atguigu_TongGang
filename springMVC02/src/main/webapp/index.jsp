@@ -51,5 +51,8 @@
 <br><br>
 <a href="testExceptionHandlerExceptionResolver?i=0">Test ExceptionHandlerExceptionResolver</a>
 
+<br><br>
+<a href="testResponseStatusExceptionResolver?i=13">Test ResponseStatusExceptionResolver</a>
+
 </body>
 </html>
