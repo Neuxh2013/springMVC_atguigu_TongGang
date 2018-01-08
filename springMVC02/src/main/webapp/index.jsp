@@ -54,5 +54,8 @@
 <br><br>
 <a href="testResponseStatusExceptionResolver?i=13">Test ResponseStatusExceptionResolver</a>
 
+<br><br>
+<a href="testDefaultHandlerExceptionResolver">Test DefaultHandlerExceptionResolver</a>
+
 </body>
 </html>
