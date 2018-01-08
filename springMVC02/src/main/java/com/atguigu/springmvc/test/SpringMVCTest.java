@@ -122,4 +122,16 @@ public class SpringMVCTest {
         return "success";
     }
 
+    /**
+     * 注意：需要注释掉 SpringMVCTestExceptionHandler 中的方法，才能得到预期结果
+     * @param i
+     * @return
+     */
+    @RequestMapping("/testSimpleMappingExceptionResolver")
+    public String testSimpleMappingExceptionResolver(@RequestParam("i") int i) {
+        String[] vals = new String[10];
+        System.out.println(vals[i]);
+        return "success";
+    }
+
 }
