@@ -34,6 +34,7 @@ public class EmployeeHandler {
 
     @RequestMapping("/emps")
     public String list(Map<String, Object> map) {
+        System.out.println("map.getClass().getName(): " + map.getClass().getName());
         map.put("employees", employeeDao.getAll());
         return "list";
     }
