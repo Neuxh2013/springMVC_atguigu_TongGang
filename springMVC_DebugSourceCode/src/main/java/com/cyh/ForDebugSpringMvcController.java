@@ -15,7 +15,8 @@ public class ForDebugSpringMvcController {
 
     @RequestMapping("/cyhDebugPath")
     public String cyhDebugMethod(Map<String, Object> map) {
-        map.put("companies", Arrays.asList("Nokia", "tsing", "guoXiaoMei"));
+        System.err.println("map.getClass().getName(): " + map.getClass().getName());
+        map.put("companies", Arrays.asList("Google", "Microsoft", "Alibaba"));
         return "success";
     }
 
