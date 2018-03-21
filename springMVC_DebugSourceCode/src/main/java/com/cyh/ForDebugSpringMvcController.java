@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ForDebugSpringMvcController {
 
-    @RequestMapping("/debug")
-    public String debug(Map<String, Object> map) {
+    @RequestMapping("/cyhDebugPath")
+    public String cyhDebugMethod(Map<String, Object> map) {
         map.put("companies", Arrays.asList("Nokia", "tsing", "guoXiaoMei"));
         return "success";
     }

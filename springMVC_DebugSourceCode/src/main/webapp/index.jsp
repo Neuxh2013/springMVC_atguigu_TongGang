@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<a href="/debug">CYH_DEBUG</a>
+<a href="/cyhDebugPath">CYH_DEBUG</a>
 
 </body>
 </html>
