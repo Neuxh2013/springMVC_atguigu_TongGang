@@ -11,3 +11,36 @@
 所以，还需要解决的问题：
     1. 为什么 loggingAspect 这个Bean放在applicationContext.xml文件中，在springmvc.xml文件中能够正常使用？
     2. 但是，将对Controller层的AOP控制放在applicationContext.xml文件中，在springmvc.xml文件中就不能正常使用？
+
+解答：
+    1. SpringMVC中有父子容器的概念，getBean()的时候会先查询父容器、再查询子容器，所以，定义在父容器中的Bean能够被子容器获取到
+        AbstractBeanFactory.java
+        @Override
+        public Class<?> getType(String name) throws NoSuchBeanDefinitionException {
+            String beanName = transformedBeanName(name);
+
+            // Check manually registered singletons.
+            Object beanInstance = getSingleton(beanName, false);
+            if (beanInstance != null) {
+                if (beanInstance instanceof FactoryBean && !BeanFactoryUtils.isFactoryDereference(name)) {
+                    return getTypeForFactoryBean((FactoryBean<?>) beanInstance);
+                } else {
+                    return beanInstance.getClass();
+                }
+            } else if (containsSingleton(beanName) && !containsBeanDefinition(beanName)) {
+                // null instance registered
+                return null;
+            }
+
+            else {
+                // No singleton instance found -> check bean definition.
+                BeanFactory parentBeanFactory = getParentBeanFactory();
+                if (parentBeanFactory != null && !containsBeanDefinition(beanName)) {
+                    // No bean definition found in this factory -> delegate to parent.
+                    return parentBeanFactory.getType(originalBeanName(name));
+                }
+
+    2. AOP本质是通过 PostProcessor 来实现的（AspectJAwareAdvisorAutoProxyCreator）
+        而Spring是在 PostProcessorRegistrationDelegate.registerBeanPostProcessors() 方法中完成对PostProcessor的注册的
+        此过程只看当前容器而不关心父容器
+        所以，定义在父容器中的Aop不会在子容器中生效！
